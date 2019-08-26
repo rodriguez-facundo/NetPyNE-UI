@@ -1,11 +1,11 @@
 FROM metacell/jupyter-neuron:development
 
-ARG netpyneuiBranch=development 
+ARG netpyneuiBranch=feature-osb_development 
 
 RUN echo $netpyneuiBranch
 
 # Clone NetPyNE-UI and install the development version
-RUN git clone -b $netpyneuiBranch https://github.com/MetaCell/NetPyNE-UI &&\
+RUN git clone -b $netpyneuiBranch https://github.com/rodriguez-facundo/NetPyNE-UI &&\
   cd NetPyNE-UI/utilities &&\
   python install.py branch $netpyneuiBranch
 

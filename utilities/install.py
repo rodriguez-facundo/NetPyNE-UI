@@ -47,12 +47,14 @@ if __name__ == "__main__":
 os.chdir(os.getcwd()+"/../")
 # Cloning Repos
 clone('https://github.com/openworm/pygeppetto.git','pygeppetto','development')
+subprocess.call(['git', 'reset', '--hard', '7d9f466b05b6ea88b0139c62b27fc78efec60428'], cwd='./pygeppetto/')
 subprocess.call(['pip', 'install', '-e', '.'], cwd='./pygeppetto/')
 
 clone('https://github.com/Neurosim-lab/netpyne.git','netpyne','ui')
 subprocess.call(['pip', 'install', '-e', '.'], cwd='./netpyne/')
 
 clone('https://github.com/openworm/org.geppetto.frontend.jupyter.git','org.geppetto.frontend.jupyter','development')
+subprocess.call(['git', 'reset', '--hard', 'ecd1d90f913c4cb84d915b831d6c486a875d5919'], cwd='./org.geppetto.frontend.jupyter/')
 with open('npm_frontend_jupyter_log', 'a') as stdout:
     subprocess.call(['npm', 'install'], cwd='./org.geppetto.frontend.jupyter/js', stdout=stdout)
 subprocess.call(['npm', 'run', 'build-dev'], cwd='./org.geppetto.frontend.jupyter/js')
