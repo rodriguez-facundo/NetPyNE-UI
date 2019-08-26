@@ -1,6 +1,6 @@
 FROM metacell/jupyter-neuron:development
 
-ARG netpyneuiBranch=feature-osb_development 
+ARG netpyneuiBranch=feature-osb_deployment
 
 RUN echo $netpyneuiBranch
 
